@@ -33,24 +33,7 @@
 				        }
 				    }
 				};
-		
-		
-				function encrypt()
-				{
-				    document.dataForm.action = "Encrypt";  
-				    document.getElementById("encryptionType").value = "encrypt";   
-				    document.dataForm.submit();             // Submit the page
-				    return true;
-				}
-				
-				function decrypt()
-				{
-				    document.dataForm.action = "Encrypt";
-				    document.getElementById("encryptionType").value = "decrypt";
-				    document.dataForm.submit();             // Submit the page
-				    return true;
-				}
-				
+
 		</script>
 	</head>
 	<body>
@@ -59,19 +42,16 @@
 				<h1><strong>AES </strong><small>Encryption & Decryption</small></h1>
 			</div>
 			<div>
-				<form name="dataForm" class="navbar-form navbar-left" method="POST">
+				<form name="dataForm" class="navbar-form navbar-left" action="logincontroller" method="POST">
 					    <div class="form-group">
-					         <input type="text" id=textField class="form-control" name="textProvided" placeholder="Text goes here !!">
-					         <input type="hidden" id="encryptionType" name="encryptionType"/>
+					         <input type="text" id=textField class="form-control" name="username" placeholder="Username">
+					         <input type="password" id=textField class="form-control" name="password" placeholder="Password">
 					    </div>
-					    <button type="button" id=encryptBtn class="btn btn-success" onClick="encrypt();" disabled>Encrypt</button>
-					    <button type="button" id=decryptBtn class="btn btn-primary" onClick="decrypt();" disabled>Decrypt</button>
+					    <button type="submit" id=encryptBtn class="btn btn-success"  disabled>Login</button>
 			     </form>
 			</div>
 			<div style="height:80px"></div>
-			<div><font face="verdana">${input}</font></div>
-			<div><font face="verdana">${error}</font></div>
-			<div><font face="verdana">${output}</font></div>
+			<div><font face="verdana">${Error}</font></div>
 		</div>
 	</body>
 </html>

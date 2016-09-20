@@ -1,3 +1,5 @@
+package com.aes.enc;
+
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -8,7 +10,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-public class EncDesc {
+public class Encrypt {
 
 	    public String encrypt(String input, String key) {
 	       byte[] crypted = null;
@@ -35,7 +37,7 @@ public class EncDesc {
 	       }
 
 	       public static void main(String args[]){
-	    		EncDesc a = new EncDesc();
+	    		Encrypt a = new Encrypt();
 	    		String key = "fedcba9876543210";
 	    		String myname = "Aditya";
 	    		String enc = a.encrypt(myname,key);

@@ -1,3 +1,5 @@
+package com.aes.enc;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/Encrypt")
-public class Encrypt extends HttpServlet {
+public class aescontroller extends HttpServlet {
 	 
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,7 @@ public class Encrypt extends HttpServlet {
 			  System.out.println("Provided Text : "+textProvided);
 			  
 			try{
-				EncDesc a = new EncDesc();
+				Encrypt a = new Encrypt();
 				String key = "fedcba9876543210";
 				String passwordEnc = null;
 						if (textProvided !=null &&  !textProvided.isEmpty())
