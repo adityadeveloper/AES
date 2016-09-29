@@ -17,10 +17,8 @@
 				        allFilled = false;
 				        break;
 				        }
-				    }
-		
-				    document.getElementById("encryptBtn").disabled = !allFilled;
-				    document.getElementById("decryptBtn").disabled = !allFilled;
+				    }				
+				    document.getElementById("loginbtn").disabled = !allFilled;		
 				}
 				
 		
@@ -44,14 +42,14 @@
 			<div>
 				<form name="dataForm" class="navbar-form navbar-left" action="logincontroller" method="POST">
 					    <div class="form-group">
-					         <input type="text" id=textField class="form-control" name="username" placeholder="Username">
-					         <input type="password" id=textField class="form-control" name="password" placeholder="Password">
-					    </div>
-					    <button type="submit" id=encryptBtn class="btn btn-success"  disabled>Login</button>
+					         <input type="text" id=textField class="form-control" name="username" placeholder="Username" style="width:300px"><br><br>
+					         <input type="password" id=textField class="form-control" name="password" placeholder="Password" style="width:300px"><br><br>				    
+							 <button type="submit" id=loginbtn class="btn btn-success"  disabled>Login</button>
 			     </form>
 			</div>
-			<div style="height:80px"></div>
-			<div><font face="verdana">${Error}</font></div>
+			<div style="height:80px;clear:both">
+	
+			<div><br /><br /><font face="verdana">${Error}</font></div><br /><br />
 		</div>
 	</body>
 </html>

@@ -6,14 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/logincontroller")
 public class logincontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+        HttpSession session=request.getSession(false);  
+        if(session!=null){  
+        	request.getRequestDispatcher("welcome.jsp").forward(request, response);
+         
+        }  
+        else{  
+            request.getRequestDispatcher("login.jsp").forward(request, response);  
+        }  
 	}
 
 
@@ -26,7 +34,16 @@ public class logincontroller extends HttpServlet {
 		boolean status = user.authenticate(givenUsername, givenPassword);
 		
 		  if (status == true){			  
+			  HttpSession session = request.getSession(false);
+			  if (session == null){
+				  request.getRequestDispatcher("login.jsp").forward(request, response);
+			  }
+			  else{
+		//	  System.out.println(session.toString());
+		//	  System.out.println(session.getAttribute("username"));
+		//	  request.setAttribute("username", givenUsername);
 			  request.getRequestDispatcher("welcome.jsp").forward(request, response);
+			  }
 		  }
 		  
 		  else{
@@ -34,8 +51,5 @@ public class logincontroller extends HttpServlet {
 			  request.setAttribute("Error", output);
 			  request.getRequestDispatcher("login.jsp").forward(request, response);
 		  }
-		
-		
 	}
-
 }
